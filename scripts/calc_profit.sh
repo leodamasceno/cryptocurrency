@@ -1,15 +1,16 @@
 #!/bin/bash
-###################################################################
-# Created by: Leonardo Damasceno <damasceno.lnx@gmail.com>        #
-# Function: Checks the profit based on how much you invested      #
-# Example: ./calc_profit.sh COIN_AMOUNT PREVIOUS_RATE FUTURE_RATE #
-# Example: ./calc_profit.sh 74469 0.0127 0.05                     #
-###################################################################
+#############################################################################
+# Created by: Leonardo Damasceno <damasceno.lnx@gmail.com>                  #
+# Function: Checks the profit based on how much you invested                #
+# Example: ./calc_profit.sh COIN_NAME COIN_AMOUNT PREVIOUS_RATE FUTURE_RATE #
+# Example: ./calc_profit.sh dogecoin 74469 0.0127 0.05                      #
+#############################################################################
 
-AMOUNT=$1
-OLD_PRICE=$2
-ESTIMATED_PRICE=$3
-CURRENT_PRICE=$(curl -s https://api.coinmarketcap.com/v1/ticker/dogecoin/ | grep --color=no price_usd | grep --color=no -Eo '[0-9.]+')
+COIN=$1
+AMOUNT=$2
+OLD_PRICE=$3
+ESTIMATED_PRICE=$4
+CURRENT_PRICE=$(curl -s https://api.coinmarketcap.com/v1/ticker/$COIN/ | grep --color=no price_usd | grep --color=no -Eo '[0-9.]+')
 
 MONEY_SPENT=$(python -c "print ($AMOUNT*$OLD_PRICE)")
 MONEY_NOW=$(python -c "print ($AMOUNT*$CURRENT_PRICE)")
