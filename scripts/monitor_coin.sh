@@ -2,9 +2,9 @@
 ###################################################################
 # Created by: Leonardo Damasceno <damasceno.lnx@gmail.com>        #
 # Function: Monitors a coin specified by the user                 #
-# Example: ./calc_profit.sh COIN_NAME COIN_AMOUNT                 #
-# Example: ./calc_profit.sh dogecoin 74469.838163                 #
-# Example: ./calc_profit.sh bitcoin 2.19023                       #
+# Example: ./monitor_coin.sh COIN_NAME COIN_AMOUNT                 #
+# Example: ./monitor_coin.sh dogecoin 74469.838163                 #
+# Example: ./monitor_coin.sh bitcoin 2.19023                       #
 ###################################################################
 
 COIN=$1
