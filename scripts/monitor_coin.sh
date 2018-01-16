@@ -12,13 +12,15 @@ AMOUNT=$2
 
 while true
 do
+  DATE=$(date +"%d/%m/%Y - %H:%M:%S")
   CURRENT_PRICE=$(curl -s https://api.coinmarketcap.com/v1/ticker/$COIN/ | grep --color=no price_usd | grep --color=no -Eo '[0-9.]+')
   CURRENT_TOTAL=$(python -c "print (round(($AMOUNT*$CURRENT_PRICE),4))")
   PERCENT_CHANGE_24H=$(curl -s https://api.coinmarketcap.com/v1/ticker/$COIN/ | grep --color=no percent_change_24h | cut -d '"' -f4)
 
+  echo "Current date:       "$DATE
   echo "Current price:      $"$CURRENT_PRICE
   echo "Current total:      $"$CURRENT_TOTAL
   echo "Percent change 24H: "$PERCENT_CHANGE_24H"%"
-  echo "###############################"
-  sleep 120
+  echo "###########################################"
+  sleep 130
 done
